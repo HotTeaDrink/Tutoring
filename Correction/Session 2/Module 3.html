@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Envoyer des Articles avec POST</title>
+</head>
+<body>
+    <h1>Ajouter un Nouvel Article</h1>
+    
+    <form id="postForm">
+        <label for="title">Titre :</label>
+        <input type="text" id="title" required><br><br>
+        
+        <label for="body">Contenu :</label>
+        <textarea id="body" required></textarea><br><br>
+        
+        <button type="submit">Envoyer</button>
+    </form>
+    
+    <script>
+        document.getElementById("postForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Empêcher le rechargement de la page
+            
+            const title = document.getElementById("title").value;
+            const body = document.getElementById("body").value;
+            
+            const data = {
+                title: title,
+                body: body,
+                userId: 1
+            };
+            
+            fetch("https://jsonplaceholder.typicode.com/posts", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data) // Convertir l'objet en JSON
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log("Article ajouté :", data); // Afficher la réponse de l'API
+            })
+            .catch(error => console.log("Erreur :", error));
+        });
+    </script>
+</body>
+</html>

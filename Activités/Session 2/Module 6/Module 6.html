@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentification avec Token</title>
+</head>
+<body>
+    <h1>Consulter des Données Sécurisées</h1>
+    
+    <!-- Login button to obtain the JWT token -->
+    <button id="loginButton">Se Connecter</button>
+    
+    <!-- Button to access secured data with the JWT token -->
+    <button id="getSecuredDataButton" disabled>Accéder aux Données Sécurisées</button>
+    
+    <script>
+        let token = null; // Variable to hold the JWT token
+        const BASE_URL = 'http://localhost:3000'
+
+        // When the user clicks on the "Login" button
+        document.getElementById("loginButton").addEventListener("click", function() {
+            // TODO: Send a request with DATA to the /login endpoint to get a token
+            // HINT: Remeber the different type of methodes and there use cases
+            fetch(`${BASE_URL}`, {
+                method: "..."
+            })
+
+            .then(response => response.json())
+            .then(data => {
+                // TODO: Store the received JWT token
+
+
+
+                console.log("Token reçu :", token);
+                
+                // Enable the "Accéder aux Données Sécurisées" button
+                document.getElementById("getSecuredDataButton").disabled = false;
+            })
+            
+            // TODO: Handle the possible error
+        });
+
+        // When the user clicks on the "Accéder aux Données Sécurisées" button
+        document.getElementById("getSecuredDataButton").addEventListener("click", function() {
+            if (!token) {
+                console.log("Veuillez d'abord vous connecter pour obtenir un token.");
+                return;
+            }
+
+            // TODO: Send a request to RECEIVE the content of the secured endpoint with the Bearer token
+            fetch("...", {
+                method: "...",
+                // TODO: Pass the token in the Authorization header
+            })
+            .then(response => response.json())
+            .then(data => {
+                // TODO: Show the data received
+            })
+            .catch(error => {
+                console.log("Erreur lors de la récupération des données sécurisées :", error);
+            });
+        });
+    </script>
+</body>
+</html>

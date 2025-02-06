@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modifier et Supprimer un Article</title>
+</head>
+<body>
+    <h1>Modifier ou Supprimer un Article</h1>
+    
+    <button id="updateButton">Mettre à Jour l'Article</button>
+    <button id="deleteButton">Supprimer l'Article</button>
+    
+    <script>
+        const articleId = 1; // ID de l'article à modifier ou supprimer
+        const API_URL = "https://jsonplaceholder.typicode.com/posts"; // MISE EN PLACE DES BONNES PRATIQUES EN DISSOCIANT LES VALEURS EN DUR DU CODE FONCTIONNEL
+
+        // Mettre à jour un article avec PUT
+        document.getElementById("updateButton").addEventListener("click", function() {
+            const updatedData = {
+                // TODO: Créer un objet avec les données selon les modèles des modules précédent
+            };
+
+            // TODO: Utiliser la valeur de la constante: API_URL + articleId afin de completer l'url à fetch
+            fetch( ... , {
+                // TODO: Methode put à définir
+                ... : '...',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(updatedData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log("Article mis à jour :", data);
+            })
+            .catch(error => console.log("Erreur :", error));
+        });
+
+        // Supprimer un article avec DELETE
+        document.getElementById("deleteButton").addEventListener("click", function() {
+            fetch( ... , {
+                method: "..."
+            })
+            .then(response => {
+                if (response.ok) {
+                    console.log("Article supprimé");
+                }
+            })
+            .catch(error => console.log("Erreur :", error));
+        });
+    </script>
+</body>
+</html>
+
+

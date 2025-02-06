@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activité GET API</title>
+</head>
+<body>
+    <h1>Récupérer des Articles</h1>
+    <button id="getDataButton">Récupérer les Articles</button>
+    
+    <script>
+        document.getElementById("getDataButton").addEventListener("click", function() {
+
+                // TODO: Utilisez fetch pour récupérer les données depuis l'API
+                // HINT: L'URL de l'API est "https://jsonplaceholder.typicode.com/posts"
+
+                .then(response =>  ) // TODO: Convertir la réponse en format JSON
+                .then(data => {
+                    // TODO: Afficher les titres des articles dans la console
+                    // HINT: Parcourez les données et utilisez console.log pour afficher chaque titre
+                    data.forEach(post => {
+                        
+                    });
+                })
+                .catch(error => {
+                    // TODO: Afficher une erreur dans la console si une erreur survient
+                    // HINT: Utilisez console.log pour afficher l'erreur
+                });
+        });
+    </script>
+</body>
+</html>

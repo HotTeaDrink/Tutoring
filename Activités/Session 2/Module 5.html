@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gérer les Erreurs d'API</title>
+</head>
+<body>
+    <h1>Tester la Gestion des Erreurs</h1>
+    <button id="fetchDataButton">Récupérer les Données</button>
+    <p id="errorMessage" style="color: red;"></p> <!-- Afficher les erreurs ici -->
+
+    <script>
+        document.getElementById("fetchDataButton").addEventListener("click", function() {
+            fetch("https://jsonplaceholder.typicode.com") // TODO: Créez une erreur avec l'url
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Données non disponibles");
+                    }
+                    return response.json();
+                })
+                .then(data => console.log(data))
+                .catch(error => {
+                    // TODO: Rajouter dans l'élement avec l'id : errorMessage l'erreur qui est apparue
+                });
+        });
+    </script>
+</body>
+</html>
